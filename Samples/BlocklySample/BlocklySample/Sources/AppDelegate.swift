@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     self.window = UIWindow(frame: frame)
 
     let navigationController = UINavigationController()
-    navigationController.pushViewController(DemoPickerViewController(), animated: false)
+    navigationController.pushViewController(SimpleWorkbenchViewController(), animated: false)
 
     self.window!.rootViewController = navigationController
     self.window!.makeKeyAndVisible()
