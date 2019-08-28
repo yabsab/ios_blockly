@@ -199,5 +199,454 @@
     "colour": "#EF6C00",
     "tooltip": "Returns the value of this variable.",
     "helpUrl": "https://github.com/google/blockly/wiki/Variables#get"
+  },
+  
+  
+  
+  {
+      "type": "controls_repeat_ext",
+      "message0": "input_value : %1",
+      "args0": [
+          {
+              "type": "field_number",
+              "name": "TIMES",
+              "check": "Number"
+        
+          }
+      ],
+      
+      
+      "message1": "%{BKY_CONTROLS_REPEAT_INPUT_DO} %1",
+      "args1": [
+          {
+              "type": "input_statement",
+              "name": "DO"
+          }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": "%{BKY_LOOPS_HUE}",
+      "inputsInline": true,
+      "tooltip": "%{BKY_CONTROLS_REPEAT_TOOLTIP}",
+      "helpUrl": "%{BKY_CONTROLS_REPEAT_HELPURL}"
+  },
+  
+  {
+      "type": "controls_whileUntil",
+      "message0": "%1 %2",
+      "args0": [
+          {
+              "type": "field_dropdown",
+              "name": "MODE",
+              "options": [
+                  ["%{BKY_CONTROLS_WHILEUNTIL_OPERATOR_WHILE}", "WHILE"],
+                  ["%{BKY_CONTROLS_WHILEUNTIL_OPERATOR_UNTIL}", "UNTIL"]
+              ]
+},
+          {
+              "type": "input_value",
+              "name": "BOOL",
+              "check": "Boolean"
+          }
+      ],
+      "message1": "%{BKY_CONTROLS_REPEAT_INPUT_DO} %1",
+      "args1": [{
+          "type": "input_statement",
+          "name": "DO"
+      }],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": "%{BKY_LOOPS_HUE}",
+      "tooltip": "While a value is false, then do some statements.",
+      "helpUrl": "%{BKY_CONTROLS_WHILEUNTIL_HELPURL}"
+  },
+  
+  {
+      "type": "controls_for",
+      "message0": "%{BKY_CONTROLS_FOR_TITLE}",
+      "args0": [
+          {
+              "type": "field_variable",
+              "name": "VAR",
+              "variable": null
+          },
+          {
+              "type": "input_value",
+              "name": "FROM",
+              "check": "Number",
+              "align": "RIGHT"
+          },
+          {
+              "type": "input_value",
+              "name": "TO",
+              "check": "Number",
+              "align": "RIGHT"
+          },
+          {
+              "type": "input_value",
+              "name": "BY",
+              "check": "Number",
+              "align": "RIGHT"
+          }
+      ],
+      "message1": "%{BKY_CONTROLS_REPEAT_INPUT_DO} %1",
+      "args1": [{
+          "type": "input_statement",
+          "name": "DO"
+      }],
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": "%{BKY_LOOPS_HUE}",
+      "helpUrl": "%{BKY_CONTROLS_FOR_HELPURL}"
+  },
+  {
+      "type": "controls_forEach",
+      "message0": "%{BKY_CONTROLS_FOREACH_TITLE}",
+      "args0": [
+          {
+              "type": "field_variable",
+              "name": "VAR",
+              "variable": null
+          },
+          {
+              "type": "input_value",
+              "name": "LIST",
+              "check": "Array"
+          }
+      ],
+      "message1": "%{BKY_CONTROLS_REPEAT_INPUT_DO} %1",
+      "args1": [{
+          "type": "input_statement",
+          "name": "DO"
+      }],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": "%{BKY_LOOPS_HUE}",
+      "helpUrl": "%{BKY_CONTROLS_FOREACH_HELPURL}"
+  },
+  
+  {
+      "type": "controls_flow_statements",
+      "message0": "%1",
+      "args0": [{
+          "type": "field_dropdown",
+          "name": "FLOW",
+          "options": [
+              ["%{BKY_CONTROLS_FLOW_STATEMENTS_OPERATOR_BREAK}", "BREAK"],
+              ["%{BKY_CONTROLS_FLOW_STATEMENTS_OPERATOR_CONTINUE}", "CONTINUE"]
+          ]
+      }],
+      "previousStatement": null,
+      "colour": "%{BKY_LOOPS_HUE}",
+      "helpUrl": "%{BKY_CONTROLS_FLOW_STATEMENTS_HELPURL}",
+      "TODO(#375)": "https://github.com/google/blockly-android/issues/375"
+  },
+  
+  {
+      "type": "text",
+      "message0": "%1 %2 %3",
+      "args0": [
+          {
+              "type": "field_image",
+              "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKCAQAAAAqJXdxAAAAn0lEQVQI1z3OMa5BURSF4f/cQhAKjUQhuQmFNwGJEUi0RKN5rU7FHKhpjEH3TEMtkdBSCY1EIv8r7nFX9e29V7EBAOvu7RPjwmWGH/VuF8CyN9/OAdvqIXYLvtRaNjx9mMTDyo+NjAN1HNcl9ZQ5oQMM3dgDUqDo1l8DzvwmtZN7mnD+PkmLa+4mhrxVA9fRowBWmVBhFy5gYEjKMfz9AylsaRRgGzvZAAAAAElFTkSuQmCC",
+              "width": 10,
+              "height": 10,
+              "alt": "\u201C"
+          },
+          {
+              "type": "field_input",
+              "name": "TEXT",
+              "text": ""
+          },
+          {
+              "type": "field_image",
+              "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKCAQAAAAqJXdxAAAAqUlEQVQI1z3KvUpCcRiA8ef9E4JNHhI0aFEacm1o0BsI0Slx8wa8gLauoDnoBhq7DcfWhggONDmJJgqCPA7neJ7p934EOOKOnM8Q7PDElo/4x4lFb2DmuUjcUzS3URnGib9qaPNbuXvBO3sGPHJDRG6fGVdMSeWDP2q99FQdFrz26Gu5Tq7dFMzUvbXy8KXeAj57cOklgA+u1B5AoslLtGIHQMaCVnwDnADZIFIrXsoXrgAAAABJRU5ErkJggg==",
+              "width": 10,
+              "height": 10,
+              "alt": "\u201D"
+          }
+      ],
+      "output": "String",
+      "colour": "%{BKY_TEXTS_HUE}",
+      "tooltip": "%{BKY_TEXT_TEXT_TOOLTIP}",
+      "helpUrl": "%{BKY_TEXT_TEXT_HELPURL}"
+  },
+  
+  
+  
+  
+  {
+      "type": "math_number",
+      "message0": "%1",
+      "args0": [
+          {
+              "type": "field_number",
+              "name": "NUM",
+              "text": "0"
+          }
+      ],
+      "colour": "%{BKY_MATH_HUE}",
+      "output": "Number",
+      "helpUrl": "%{BKY_MATH_NUMBER_HELPURL}",
+      "tooltip": "%{BKY_MATH_NUMBER_TOOLTIP}"
+  },
+  {
+      "type": "math_arithmetic",
+      "message0": "%1 %2 %3",
+      "args0": [
+          {
+              "type": "input_value",
+              "name": "A",
+              "check": "Number"
+          },
+          {
+              "type": "field_dropdown",
+              "name": "OP",
+              "options": [
+                  ["%{BKY_MATH_ADDITION_SYMBOL}", "ADD"],
+                  ["%{BKY_MATH_SUBTRACTION_SYMBOL}", "MINUS"],
+                  ["%{BKY_MATH_MULTIPLICATION_SYMBOL}", "MULTIPLY"],
+                  ["%{BKY_MATH_DIVISION_SYMBOL}", "DIVIDE"],
+                  ["%{BKY_MATH_POWER_SYMBOL}", "POWER"]
+              ]
+          },
+          {
+              "type": "input_value",
+              "name": "B",
+              "check": "Number"
+          }
+      ],
+      "inputsInline": true,
+      "output": "Number",
+      "colour": "%{BKY_MATH_HUE}",
+      "helpUrl": "%{BKY_MATH_ARITHMETIC_HELPURL}"
+  },
+  {
+      "type": "math_single",
+      "message0": "%1 %2",
+      "args0": [
+          {
+              "type": "field_dropdown",
+              "name": "OP",
+              "options": [
+                  ["%{BKY_MATH_SINGLE_OP_ROOT}", "ROOT"],
+                  ["%{BKY_MATH_SINGLE_OP_ABSOLUTE}", "ABS"],
+                  ["-", "NEG"],
+                  ["ln", "LN"],
+                  ["log10", "LOG10"],
+                  ["e^", "EXP"],
+                  ["10^", "POW10"]
+              ]
+          },
+          {
+              "type": "input_value",
+              "name": "NUM",
+              "check": "Number"
+          }
+      ],
+      "output": "Number",
+      "colour": "%{BKY_MATH_HUE}",
+      "helpUrl": "%{BKY_MATH_SINGLE_HELPURL}"
+  },
+  {
+      "type": "math_trig",
+      "message0": "%1 %2",
+      "args0": [
+          {
+              "type": "field_dropdown",
+              "name": "OP",
+              "options": [
+                  ["%{BKY_MATH_TRIG_SIN}", "SIN"],
+                  ["%{BKY_MATH_TRIG_COS}", "COS"],
+                  ["%{BKY_MATH_TRIG_TAN}", "TAN"],
+                  ["%{BKY_MATH_TRIG_ASIN}", "ASIN"],
+                  ["%{BKY_MATH_TRIG_ACOS}", "ACOS"],
+                  ["%{BKY_MATH_TRIG_ATAN}", "ATAN"]
+              ]
+          },
+          {
+              "type": "input_value",
+              "name": "NUM",
+              "check": "Number"
+          }
+      ],
+      "output": "Number",
+      "colour": "%{BKY_MATH_HUE}",
+      "helpUrl": "%{BKY_MATH_TRIG_HELPURL}"
+  },
+  {
+      "type": "math_constant",
+      "message0": "%1",
+      "args0": [
+          {
+              "type": "field_dropdown",
+              "name": "CONSTANT",
+              "options": [
+                  ["\u03c0", "PI"],
+                  ["e", "E"],
+                  ["\u03c6", "GOLDEN_RATIO"],
+                  ["sqrt(2)", "SQRT2"],
+                  ["sqrt(\u00bd)", "SQRT1_2"],
+                  ["\u221e", "INFINITY"]
+              ]
+          }
+      ],
+      "output": "Number",
+      "colour": "%{BKY_MATH_HUE}",
+      "tooltip": "%{BKY_MATH_CONSTANT_TOOLTIP}",
+      "helpUrl": "%{BKY_MATH_CONSTANT_HELPURL}"
+  },
+  {
+      "type": "math_number_property",
+      "message0": "%1 %2",
+      "args0": [
+          {
+              "type": "input_value",
+              "name": "NUMBER_TO_CHECK",
+              "check": "Number"
+          },
+          {
+              "type": "field_dropdown",
+              "name": "PROPERTY",
+              "options": [
+                  ["%{BKY_MATH_IS_EVEN}", "EVEN"],
+                  ["%{BKY_MATH_IS_ODD}", "ODD"],
+                  ["%{BKY_MATH_IS_PRIME}", "PRIME"],
+                  ["%{BKY_MATH_IS_WHOLE}", "WHOLE"],
+                  ["%{BKY_MATH_IS_POSITIVE}", "POSITIVE"],
+                  ["%{BKY_MATH_IS_NEGATIVE}", "NEGATIVE"],
+                  ["%{BKY_MATH_IS_DIVISIBLE_BY}", "DIVISIBLE_BY"]
+              ]
+          }
+      ],
+      "inputsInline": true,
+      "colour": "%{BKY_MATH_HUE}",
+      "output": "Boolean",
+      "tooltip": "%{BKY_MATH_IS_TOOLTIP}",
+      "TODO(#376)": "https://github.com/google/blockly-android/issues/376"
+  },
+  {
+      "type": "math_change",
+      "message0": "%{BKY_MATH_CHANGE_TITLE}",
+      "args0": [
+          {
+              "type": "field_variable",
+              "name": "VAR",
+              "variable": "%{BKY_MATH_CHANGE_TITLE_ITEM}"
+          },
+          {
+              "type": "input_value",
+              "name": "DELTA",
+              "check": "Number"
+          }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": "%{BKY_VARIABLES_HUE}",
+      "helpUrl": "%{BKY_MATH_CHANGE_HELPURL}"
+  },
+  {
+      "type": "math_round",
+      "message0": "%1 %2",
+      "args0": [
+          {
+              "type": "field_dropdown",
+              "name": "OP",
+              "options": [
+                  ["%{BKY_MATH_ROUND_OPERATOR_ROUND}", "ROUND"],
+                  ["%{BKY_MATH_ROUND_OPERATOR_ROUNDUP}", "ROUNDUP"],
+                  ["%{BKY_MATH_ROUND_OPERATOR_ROUNDDOWN}", "ROUNDDOWN"]
+              ]
+          },
+          {
+              "type": "input_value",
+              "name": "NUM",
+              "check": "Number"
+          }
+      ],
+      "output": "Number",
+      "colour": "%{BKY_MATH_HUE}",
+      "tooltip": "%{BKY_MATH_ROUND_TOOLTIP}",
+      "helpUrl": "%{BKY_MATH_ROUND_HELPURL}"
+  },
+  {
+      "type": "math_modulo",
+      "message0": "%{BKY_MATH_MODULO_TITLE}",
+      "args0": [
+          {
+              "type": "input_value",
+              "name": "DIVIDEND",
+              "check": "Number"
+          },
+          {
+              "type": "input_value",
+              "name": "DIVISOR",
+              "check": "Number"
+          }
+      ],
+      "inputsInline": true,
+      "output": "Number",
+      "colour": "%{BKY_MATH_HUE}",
+      "tooltip": "%{BKY_MATH_MODULO_TOOLTIP}",
+      "helpUrl": "%{BKY_MATH_MODULO_HELPURL}"
+  },
+  {
+      "type": "math_constrain",
+      "message0": "%{BKY_MATH_CONSTRAIN_TITLE}",
+      "args0": [
+          {
+              "type": "input_value",
+              "name": "VALUE",
+              "check": "Number"
+          },
+          {
+              "type": "input_value",
+              "name": "LOW",
+              "check": "Number"
+          },
+          {
+              "type": "input_value",
+              "name": "HIGH",
+              "check": "Number"
+          }
+      ],
+      "inputsInline": true,
+      "output": "Number",
+      "colour": "%{BKY_MATH_HUE}",
+      "tooltip": "%{BKY_MATH_CONSTRAIN_TOOLTIP}",
+      "helpUrl": "%{BKY_MATH_CONSTRAIN_HELPURL}"
+  },
+  {
+      "type": "math_random_int",
+      "message0": "%{BKY_MATH_RANDOM_INT_TITLE}",
+      "args0": [
+          {
+              "type": "input_value",
+              "name": "FROM",
+              "check": "Number"
+          },
+          {
+              "type": "input_value",
+              "name": "TO",
+              "check": "Number"
+          }
+      ],
+      "inputsInline": true,
+      "output": "Number",
+      "colour": "%{BKY_MATH_HUE}",
+      "tooltip": "%{BKY_MATH_RANDOM_INT_TOOLTIP}",
+      "helpUrl": "%{BKY_MATH_RANDOM_INT_HELPURL}"
+  },
+  {
+      "type": "math_random_float",
+      "message0": "%{BKY_MATH_RANDOM_FLOAT_TITLE_RANDOM}",
+      "output": "Number",
+      "colour": "%{BKY_MATH_HUE}",
+      "tooltip": "%{BKY_MATH_RANDOM_FLOAT_TOOLTIP}",
+      "helpUrl": "%{BKY_MATH_RANDOM_FLOAT_HELPURL}"
   }
+  
+  
+  
 ]

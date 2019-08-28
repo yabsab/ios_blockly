@@ -34,11 +34,12 @@ class AllFieldsWorkbenchViewController: WorkbenchViewController {
 
     // Don't allow the navigation controller bar cover this view controller
     self.edgesForExtendedLayout = UIRectEdge()
-    self.navigationItem.title = "Workbench with All Field Types"
+    self.navigationItem.title = "creamo"
 
     // Load data
     loadBlockFactory()
     loadToolbox()
+   
   }
 
   // MARK: - Private
@@ -54,9 +55,36 @@ class AllFieldsWorkbenchViewController: WorkbenchViewController {
   private func loadToolbox() {
     // Create a new toolbox with a "Blocks" category
     let toolbox = Toolbox()
+    
+    let Start =
+        toolbox.addCategory(
+            name: "Start", color: ColorPalette.green.tint400, icon: UIImage(named: ""))
+    
     let blocksCategory =
       toolbox.addCategory(
-        name: "Blocks", color: ColorPalette.orange.tint800, icon: UIImage(named: "icon_block"))
+        name: "Blocks", color: ColorPalette.orange.tint800, icon: UIImage(named: ""))
+    
+    let Loops =
+        toolbox.addCategory(
+            name: "Loops", color: ColorPalette.green.tint400, icon: UIImage(named: ""))
+  
+    let Text =
+        toolbox.addCategory(
+            name: "Text", color: ColorPalette.green.tint400, icon: UIImage(named: ""))
+    
+    let Math =
+        toolbox.addCategory(
+            name: "Math", color: ColorPalette.green.tint400, icon: UIImage(named: ""))
+    
+    let Variables =
+        toolbox.addCategory(
+            name: "Variables", color: ColorPalette.green.tint400, icon: UIImage(named: ""))
+    
+   
+    let SMBlock =
+        toolbox.addCategory(
+            name: "SmartBlock", color: ColorPalette.green.tint400, icon: UIImage(named: ""))
+    
 
     // Add all field blocks to the "Blocks" category
     let blockNames = [
@@ -66,22 +94,136 @@ class AllFieldsWorkbenchViewController: WorkbenchViewController {
       "field_number_integer_block", "field_number_currency_block", "field_number_constrained_block",
       "field_variable_block"
     ]
+    let LoopsBlocks = ["controls_repeat_ext","controls_whileUntil"]
+    let TextBlocks = ["text"]
+    
+    
+    let MathBlocks = ["math_number","math_arithmetic","math_number_property","math_trig","math_modulo","math_random_int"]
+    
+    
+    
+    let VariablesBlocks = ["field_variable_block"]
+    let SmartBlocks = ["field_variable_block"]
+    
+    
+    
+    let StartBlocks = ["field_variable_block"]
+    
+    for SmartBlock in SmartBlocks
+    {
+        do
+        {
+        let smartblock = try blockFactory.makeBlock(name : SmartBlock)
+        try SMBlock.addBlockTree(smartblock)
+    }
+    
+    catch let error
+    
+    {
+        print("Error adding '\(SmartBlock)' block to category: \(error)")
+    }
+}
+    
+    
+    for VariablesBlock in VariablesBlocks
+    {
+        do
+        {
+            let variablesblock = try blockFactory.makeBlock(name : VariablesBlock)
+            try Variables.addBlockTree(variablesblock)
+        }
+            catch let error
+    {
+        print("Error adding '\(VariablesBlock)' block to category: \(error)")
+    }
+}
+    
+    
+    for MathBlock in MathBlocks
+    {
+        do
+        {
+            let listblock = try blockFactory.makeBlock(name : MathBlock)
+            
+           try Math.addBlockTree(listblock)
+    
+    
+    }
+      catch let error
+      {
+        print("Error adding '\(MathBlocks)' block to category: \(error)")
+    }
+}
+    
+    
+    
+    for TextBlock in TextBlocks
+    {
+        do
+        {
+        let textblock = try blockFactory.makeBlock(name : TextBlock)
+            
+         try Text.addBlockTree(textblock)
+        
+    }
+        catch let error
+    {
+        print("Error adding '\(TextBlock)' block to category: \(error)")
+    }
+}
 
-    for blockName in blockNames {
+    
+    //block category1
+    
+    for blockName in blockNames
+    {
       do {
         let block = try blockFactory.makeBlock(name: blockName)
+        
         try blocksCategory.addBlockTree(block)
+       
       } catch let error {
         print("Error adding '\(blockName)' block to category: \(error)")
       }
     }
-
-    // Load the toolbox into the workbench
-    do {
+    
+    
+    //block category2
+    for LoopsBlock in LoopsBlocks
+    {
+        do {
+            let block = try blockFactory.makeBlock(name: LoopsBlock)
+            
+            try Loops.addBlockTree(block)
+            
+        } catch let error {
+            print("Error adding '\(LoopsBlock)' block to category: \(error)")
+        }
+    }
+    
+    
+    //block category2
+    for StartBlock in StartBlocks
+    {
+        do {
+            let block = try blockFactory.makeBlock(name: StartBlock)
+            
+            try Start.addBlockTree(block)
+            
+        } catch let error {
+            print("Error adding '\(StartBlock)' block to category: \(error)")
+        }
+    }
+  // Load the toolbox into the workbench
+    do
+    {
       try loadToolbox(toolbox)
     } catch let error {
       print("Error loading toolbox into workbench: \(error)")
       return
     }
   }
+    
+
+    
 }
