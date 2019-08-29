@@ -645,8 +645,76 @@
       "colour": "%{BKY_MATH_HUE}",
       "tooltip": "%{BKY_MATH_RANDOM_FLOAT_TOOLTIP}",
       "helpUrl": "%{BKY_MATH_RANDOM_FLOAT_HELPURL}"
-  }
+  },
   
+  {
+      "type": "variables_get",
+      "message0": "%1",
+      "args0": [
+          {
+              "type": "field_variable",
+              "name": "VAR",
+              "variable": "%{BKY_VARIABLES_DEFAULT_NAME}"
+          }
+      ],
+      "output": null,
+      "colour": "%{BKY_VARIABLES_HUE}",
+      "tooltip": "%{BKY_VARIABLES_GET_TOOLTIP}",
+      "helpUrl": "%{BKY_VARIABLES_GET_HELPURL}"
+  },
+  {
+      "type": "variables_set",
+      "message0": "%{BKY_VARIABLES_SET}",
+      "args0": [
+          {
+              "type": "field_variable",
+              "name": "VAR",
+              "variable": "%{BKY_VARIABLES_DEFAULT_NAME}"
+          },
+          {
+              "type": "input_value",
+              "name": "VALUE"
+          }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": "%{BKY_VARIABLES_HUE}",
+      "tooltip": "%{BKY_VARIABLES_SET_TOOLTIP}",
+      "helpUrl": "%{BKY_VARIABLES_SET_HELPURL}"
+  },
+  
+  {
+      "type": "SB_digital",
+      "message0": "SmartBlock %1 On",
+      "args0": [
+          {
+              "type": "field_dropdown",
+              "name": "Digital",
+              "options": [
+                ["0","Digital0"],
+                ["1","Digital1"],
+                ["2","Digital2"],
+                ["3","Digital3"],
+                ["4","Digital4"],
+                ["5","Digital5"],
+                ["6","Digital6"],
+                ["7","Digital7"],
+                ["8","Digital8"],
+                ["9","Digital9"],
+                ["10","Digital10"],
+                ["11","Digital11"],
+                ["12","Digital12"],
+                ["13","Digital13"],
+                ["14","Digital14"],
+                ["15","Digital15"]
+              ]
+          }
+      ],
+      "nextStatement": null,
+      "colour": 230,
+      "tooltip": "",
+      "helpUrl": ""
+  }
   
   
 ]

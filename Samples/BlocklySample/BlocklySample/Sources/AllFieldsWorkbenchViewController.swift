@@ -16,9 +16,14 @@
 import UIKit
 import Blockly
 
+
 class AllFieldsWorkbenchViewController: WorkbenchViewController {
   // MARK: - Initializers
 
+private var codeGenerator = Codegenerator()
+    
+ 
+    
   init() {
     super.init(style: .defaultStyle)
   }
@@ -28,20 +33,53 @@ class AllFieldsWorkbenchViewController: WorkbenchViewController {
   }
 
   // MARK: - Super
-
+   
+ 
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    generateCode()
     // Don't allow the navigation controller bar cover this view controller
     self.edgesForExtendedLayout = UIRectEdge()
     self.navigationItem.title = "creamo"
 
+    
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "save", style: .plain, target: self, action: #selector(saveXML))
     // Load data
     loadBlockFactory()
     loadToolbox()
-   
+    loadcodingBlock()
+    
+
+  
   }
 
+    
+    
+   // ------+---Date-------+----------------------------+---------------------------+
+   //       +  2019.08.29  +   안재용 yabsab@kist.re.kr   +  코딩블록 save, load  기능
+   //       +              +
+   //       +              +
+   //       +              +
+   //       +              +
+   // ------------------------------------------------------------------------------+
+    
+ 
+  func generateCode()
+  {
+    
+    if let workspaceXML = FileHelper.loadContents(of: "workspace\(0).xml") {
+        codeGenerator.generateCode(forKey: String(0), workspaceXML: workspaceXML)
+    }
+}
+    
+    @objc func saveXML ()
+    {
+    saveCoding()
+     print("test")
+    
+    }
+    
+    
   // MARK: - Private
 
   private func loadBlockFactory() {
@@ -96,19 +134,14 @@ class AllFieldsWorkbenchViewController: WorkbenchViewController {
     ]
     let LoopsBlocks = ["controls_repeat_ext","controls_whileUntil"]
     let TextBlocks = ["text"]
-    
-    
-    let MathBlocks = ["math_number","math_arithmetic","math_number_property","math_trig","math_modulo","math_random_int"]
-    
-    
-    
-    let VariablesBlocks = ["field_variable_block"]
-    let SmartBlocks = ["field_variable_block"]
+   let MathBlocks = ["math_number","math_arithmetic","math_number_property","math_trig","math_modulo","math_random_int"]
+    let VariablesBlocks = ["variables_get"]
+    let SmartBlocks = ["SB_digital"]
+   let StartBlocks = ["creamo_Digital"]
     
     
     
-    let StartBlocks = ["field_variable_block"]
-    
+    //block category1
     for SmartBlock in SmartBlocks
     {
         do
@@ -124,7 +157,7 @@ class AllFieldsWorkbenchViewController: WorkbenchViewController {
     }
 }
     
-    
+    //block category2
     for VariablesBlock in VariablesBlocks
     {
         do
@@ -138,34 +171,27 @@ class AllFieldsWorkbenchViewController: WorkbenchViewController {
     }
 }
     
-    
+    //block category3
     for MathBlock in MathBlocks
     {
         do
         {
             let listblock = try blockFactory.makeBlock(name : MathBlock)
-            
-           try Math.addBlockTree(listblock)
-    
-    
+            try Math.addBlockTree(listblock)
     }
       catch let error
       {
         print("Error adding '\(MathBlocks)' block to category: \(error)")
     }
 }
-    
-    
-    
+    //block category4
     for TextBlock in TextBlocks
     {
         do
         {
         let textblock = try blockFactory.makeBlock(name : TextBlock)
-            
-         try Text.addBlockTree(textblock)
-        
-    }
+        try Text.addBlockTree(textblock)
+        }
         catch let error
     {
         print("Error adding '\(TextBlock)' block to category: \(error)")
@@ -173,7 +199,7 @@ class AllFieldsWorkbenchViewController: WorkbenchViewController {
 }
 
     
-    //block category1
+    //block category5
     
     for blockName in blockNames
     {
@@ -188,7 +214,7 @@ class AllFieldsWorkbenchViewController: WorkbenchViewController {
     }
     
     
-    //block category2
+    //block category6
     for LoopsBlock in LoopsBlocks
     {
         do {
@@ -202,7 +228,7 @@ class AllFieldsWorkbenchViewController: WorkbenchViewController {
     }
     
     
-    //block category2
+    //block category7
     for StartBlock in StartBlocks
     {
         do {
@@ -224,6 +250,53 @@ class AllFieldsWorkbenchViewController: WorkbenchViewController {
     }
   }
     
-
     
+     //코딩 저장
+    public func saveCoding()
+    {
+        
+        if let workspace = workspaceViewController.workspace
+        {
+        do {
+            let xml = try workspace.toXML()
+            FileHelper.saveContents(xml, to: "0.xml")
+            print(xml)
+        }
+        catch let error
+        {
+            print("could't save workspace to disk \(error)")
+            
+        }
+        
+    }
+        
+}
+    
+    //저장된 xml 로드
+    public func loadcodingBlock()
+    {
+        do
+        {
+            let workspace = Workspace()
+            
+            
+            if let xml = FileHelper.loadContents(of: "0.xml")
+            
+            {
+                try workspace.loadBlocks(fromXMLString: xml, factory: blockFactory)
+            }
+            
+            try  loadWorkspace(workspace)
+           
+            print(workspace)
+            
+            
+        }
+        catch let error
+        {
+        print ("cloud't load xml \(error)")
+        }
+        
+    }
+
 }

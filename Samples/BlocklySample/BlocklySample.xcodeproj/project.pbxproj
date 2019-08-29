@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3035DCFF1DA45C940087B9CC /* TurtleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035DCFE1DA45C940087B9CC /* TurtleViewController.xib */; };
+		F018A19F2316A7290020B92A /* Codegenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F018A19E2316A7290020B92A /* Codegenerator.swift */; };
+		F018A1AA2316A8F80020B92A /* CodeGeneratorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F018A1A92316A8F80020B92A /* CodeGeneratorService.swift */; };
+		F018A1AF231774340020B92A /* en.js in Resources */ = {isa = PBXBuildFile; fileRef = F018A1AE231774340020B92A /* en.js */; };
+		F018A1B32317748F0020B92A /* blockly_cmpessed.js in Resources */ = {isa = PBXBuildFile; fileRef = F018A1B22317748F0020B92A /* blockly_cmpessed.js */; };
 		FA2F44511E9C6A2D0071C1A3 /* AllFieldsDemo in Resources */ = {isa = PBXBuildFile; fileRef = FA2F444D1E9C6A2D0071C1A3 /* AllFieldsDemo */; };
 		FA2F44521E9C6A2D0071C1A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA2F444E1E9C6A2D0071C1A3 /* Images.xcassets */; };
 		FA2F44531E9C6A2D0071C1A3 /* SimpleWorkbench in Resources */ = {isa = PBXBuildFile; fileRef = FA2F444F1E9C6A2D0071C1A3 /* SimpleWorkbench */; };
@@ -125,6 +129,10 @@
 /* Begin PBXFileReference section */
 		302352761DB04B0100450D09 /* TurtleViewControllerInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TurtleViewControllerInterface.h; sourceTree = "<group>"; };
 		3035DCFE1DA45C940087B9CC /* TurtleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TurtleViewController.xib; sourceTree = "<group>"; };
+		F018A19E2316A7290020B92A /* Codegenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codegenerator.swift; sourceTree = "<group>"; };
+		F018A1A92316A8F80020B92A /* CodeGeneratorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeGeneratorService.swift; sourceTree = "<group>"; };
+		F018A1AE231774340020B92A /* en.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = en.js; sourceTree = "<group>"; };
+		F018A1B22317748F0020B92A /* blockly_cmpessed.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = blockly_cmpessed.js; sourceTree = "<group>"; };
 		FA2F444D1E9C6A2D0071C1A3 /* AllFieldsDemo */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AllFieldsDemo; path = "Non-Localized/AllFieldsDemo"; sourceTree = "<group>"; };
 		FA2F444E1E9C6A2D0071C1A3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Non-Localized/Images.xcassets"; sourceTree = "<group>"; };
 		FA2F444F1E9C6A2D0071C1A3 /* SimpleWorkbench */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SimpleWorkbench; path = "Non-Localized/SimpleWorkbench"; sourceTree = "<group>"; };
@@ -161,9 +169,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F018A1AB2316A9FB0020B92A /* blockly_web */ = {
+			isa = PBXGroup;
+			children = (
+				F018A1B22317748F0020B92A /* blockly_cmpessed.js */,
+				F018A1AC2316AA150020B92A /* msg */,
+			);
+			path = blockly_web;
+			sourceTree = "<group>";
+		};
+		F018A1AC2316AA150020B92A /* msg */ = {
+			isa = PBXGroup;
+			children = (
+				F018A1AD2317740B0020B92A /* js */,
+				F018A1AE231774340020B92A /* en.js */,
+			);
+			name = msg;
+			sourceTree = "<group>";
+		};
+		F018A1AD2317740B0020B92A /* js */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = js;
+			sourceTree = "<group>";
+		};
 		FA2F444C1E9C6A1C0071C1A3 /* Non-Localized */ = {
 			isa = PBXGroup;
 			children = (
+				F018A1AB2316A9FB0020B92A /* blockly_web */,
 				FA2F444D1E9C6A2D0071C1A3 /* AllFieldsDemo */,
 				FA2F444E1E9C6A2D0071C1A3 /* Images.xcassets */,
 				FA2F444F1E9C6A2D0071C1A3 /* SimpleWorkbench */,
@@ -280,6 +314,8 @@
 				3035DCFE1DA45C940087B9CC /* TurtleViewController.xib */,
 				FA5F28B01C756B73008384BE /* TurtleSwiftViewController.swift */,
 				302352761DB04B0100450D09 /* TurtleViewControllerInterface.h */,
+				F018A19E2316A7290020B92A /* Codegenerator.swift */,
+				F018A1A92316A8F80020B92A /* CodeGeneratorService.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -330,6 +366,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 				fr,
@@ -476,6 +513,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3035DCFF1DA45C940087B9CC /* TurtleViewController.xib in Resources */,
+				F018A1B32317748F0020B92A /* blockly_cmpessed.js in Resources */,
+				F018A1AF231774340020B92A /* en.js in Resources */,
 				FA2F44521E9C6A2D0071C1A3 /* Images.xcassets in Resources */,
 				FA2F44541E9C6A2D0071C1A3 /* Turtle in Resources */,
 				FA2F44531E9C6A2D0071C1A3 /* SimpleWorkbench in Resources */,
@@ -491,7 +530,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F018A19F2316A7290020B92A /* Codegenerator.swift in Sources */,
 				FAE2A6491C756AA20085D36B /* SimpleWorkbenchViewController.swift in Sources */,
+				F018A1AA2316A8F80020B92A /* CodeGeneratorService.swift in Sources */,
 				FAE2A6481C756AA20085D36B /* AppDelegate.swift in Sources */,
 				FAC357E51D9244A2003FB436 /* TurtleObjCViewController.m in Sources */,
 				FA4DBED61DB04B26002E493E /* AllFieldsWorkbenchViewController.swift in Sources */,

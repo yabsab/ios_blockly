@@ -29,8 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     self.window = UIWindow(frame: frame)
 
     let navigationController = UINavigationController()
-    navigationController.pushViewController(AllFieldsWorkbenchViewController(), animated: false)
+   navigationController.pushViewController(AllFieldsWorkbenchViewController(), animated: false)
 
+    
+//    navigationController.pushViewController(TurtleSwiftViewController(), animated: false)
+
+    
     self.window!.rootViewController = navigationController
     self.window!.makeKeyAndVisible()
 
